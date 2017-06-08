@@ -22,7 +22,7 @@ RUN sed -ri 's/^session\s+required\s+pam_loginuid.so$/session optional pam_login
 RUN sed -ri 's/langs=en_US.UTF-8/langs=en_US.utf8/' /etc/yum.conf && \
        yum reinstall -y glibc-common
 
-RUN yum -y install nc net-tools
+RUN yum -y install nc net-tools iptables
 
 ENV container docker
 
