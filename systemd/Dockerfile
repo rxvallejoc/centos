@@ -53,11 +53,11 @@ openldap-devel
 
 # Enable remote pubkey access
 RUN mkdir /root/.ssh && chmod 700 /root/.ssh && \
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCdCmmPjsOBWRXc+PKdgDRrsciNjp25zTacyz8Gdkln2ma046brOYXAphhp/85DKgHtANBBt3cl4+HnpDbmAfyq2qZT7hWzAbMxtq0Sj+yyFyUdreXoe4gEKyxpV6o8p/R/XzEcawvqX/vFc5EIFmvTdamxZs9DQmOE5AZMzUB18Kerkrb0/arUcZ8iMi9Ng9a18avow+7oUFZ6Oub7ISz/dkIRojaKO/2paJZ4p+v7ZLn7Hq8TUeBkgAlx872oh8J8linhIq17zK6x4MGL8qiurp2hnfe0cuCxwcsYGy+4DfK51+E2vks6FprCIfF5hIdz26euPn67/YpM0F0b5nXF busybee@drone" >> /root/.ssh/authorized_keys
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC5SDguAT9dOSJn5ruZJgYKRw06aS0anuS+9bWhdZ/otllsbqqlKFdsUJcO4rwxxITbpHm+1/8NMyllXcjwkIoBrCLbal2E9nUp8aW/ZDpT7q1JOIQsmQ62XjB8HwqiWhpKJol0EQsOGhjOVkmTKVliid7G6bV6RMWEkoeVIYFpIeDk1NOJi7KGPlhecHUXwFQReey6QWGFj9APaqf8nRuQHHCsiB+fAqHDxJlyx5ipboSTSZrTnDonAMuhoRZm7qwa+LNYDiCyltaT39wx2Bm7V6T7JgjlQi7mBthQmdLXAHq6/Bm3qeftNEmzFOzdha1BBkTSNXZjZpwyp64CzLSO4UgIXq+7hpUA2cSBjROwxg1W9i9VSytfv6ZX37nniLwrFdYhSXqYy+1lFoD0kUzSpHhiw9JAoIahXw4jL9oEbC70lcNvKN72Ug7MNxsS3d8DV8gqRc0eWlAP20aTlc5X3rMWwtXB+89OCRm0vnIcpJRbjdeV2Vmf/0R6yQR+8Yj9k2t1V2v9HfC9/I/T2pliR4kMte1tZw/ZE7XLdjEguRWdb1mvkawqfUJaFGnoMpsvJpuBzH6l590e7A1Ygi5S8yjltc+SmMpzQQ5jc3q33yoxAuXYZShpPIfau3NOx6G2PxV9CQyXEw7qQHv3/BriH1krTLxKqNXMeQFDwzDt7Q== kitcken@test.com" >> /root/.ssh/authorized_keys
 
 # Create busybee credentials and make busybee pkey available for root
-COPY busybee*  /root/.ssh/
-RUN chmod 600 /root/.ssh/busybee
+COPY kitchen*  /root/.ssh/
+RUN chmod 600 /root/.ssh/kitchen_rsa
 
 RUN yum -y install openssh-server sudo && \
     ssh-keygen -t rsa -N '' -f /etc/ssh/ssh_host_rsa_key
